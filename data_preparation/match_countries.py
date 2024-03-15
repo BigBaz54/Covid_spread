@@ -61,7 +61,7 @@ def select_matched(countries, files):
 
 
 if __name__ == '__main__':
-    covid_data = pd.read_csv('data/covid_19_confirmed_cleaned.csv')
+    covid_data = pd.read_csv('data/data.csv')
     countries = covid_data['Country'].unique()
     # pop_data = pd.read_csv('data/mean_temperature.csv')
     # possible_matches = pop_data['Country'].unique()
@@ -73,7 +73,7 @@ if __name__ == '__main__':
 
     # delete_unmatched('data/raw/covid_19_confirmed_merged.csv', ['data/total_pop.csv', 'data/urban_pop.csv', 'data/mean_temperature.csv', 'data/coordinates.csv'])
 
-    # select_matched(countries, ['data/total_pop.csv', 'data/urban_pop.csv', 'data/mean_temperature.csv', 'data/coordinates.csv'])
+    select_matched(countries, ['data/raw/covid_19_mortality_rates.csv'])
 
     # nb_occ = {c: 0 for c in countries}
     # for file_ in ['data/total_pop_cleaned.csv', 'data/urban_pop_cleaned.csv', 'data/mean_temperature_cleaned.csv', 'data/coordinates_cleaned.csv']:
