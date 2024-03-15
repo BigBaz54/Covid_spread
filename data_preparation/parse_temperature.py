@@ -19,7 +19,7 @@ def parse_temperature():
 if __name__ == '__main__':
     # print(parse_temperature())
     temperatures = parse_temperature()
-    with open('../data/mean_temperature.csv', 'w', encoding='utf-8') as f:
+    with open('data/mean_temperature.csv', 'w', encoding='utf-8') as f:
         f.write('Country,Mean temperature\n')
         for country, temperature in temperatures.items():
             f.write(f'{country},{temperature}\n')
