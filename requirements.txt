@@ -1,3 +1,7 @@
 pandas
 seaborn
 matplotlib
+sklearn
+scipy
+numpy
+ruptures
