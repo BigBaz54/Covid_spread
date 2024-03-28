@@ -213,17 +213,16 @@ Nous avons ensuite essayé de tronquer les courbes avec la bibliothèque Python 
 permet de détecter des points singuliers d'une courbe mais nous ne sommes pas parvenus à trouver
 des paramètres qui nous donnaient des résultats satisfaisants sur l'ensemble des pays.
 
-Nous avons donc décidé d'utiliser la dérivée de la courbe de cas confirmés pour détecter les changements
-de tendance. La dérivée d'une série temporelle est calculée en prenant la différence entre chaque point
-de la courbe et le point précédent. Nous localisons le point où la dérivée est maximale pour chaque pays
-remontons dans le temps jusqu'à ce que la dérivée soit inférieure à un certain seuil pour tronquer la courbe.
-Nous procédons de la même manière de l'autre côté de la courbe en avançant dans le temps jusqu'à ce que la
-dérivée soit inférieure à un autre seuil.
+Pour détecter les changements de tendance dans la propagation du virus, nous avons calculé la dérivée
+des courbes de cas confirmés. La dérivée d'une série temporelle représente la variation entre chaque point
+de données et le point précédent. Nous avons repéré le point où la dérivée était maximale, ce qui
+correspond au pic de propagation du virus. Ensuite, en remontant dans le temps à partir de ce point,
+nous avons tronqué la courbe aux endroits où la dérivée passait en dessous d'un premier seuil fixé à 5\%.
+Nous avons procédé de la même manière en avançant dans le temps à partir du pic, en tronquant la courbe
+lorsque la dérivée descendait sous un second seuil de 70\%. (fig. \ref{fig:clip})
 
 Les seuils ont été choisis de manière empirique en observant les résultats produits sur un échantillon de pays
 avec des courbes variées. (fig. \ref{fig:clip_full})
-
-Nous avons finalement choisi 5\% comme seuil pour la détection du début de la pandémie et 70\% pour la fin.
 
 \begin{figure}[h]
     \centering
