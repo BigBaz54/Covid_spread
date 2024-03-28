@@ -183,18 +183,195 @@ pas assez de facteurs en compte et donc que les résultats obtenus n'étaient pa
 conclure que la position géographique était un facteur déterminant dans la propagation du virus.
 
 \section{Algorithmes}
-\textit{TODO : Pas bien compris cette partie, le nettoyage des données a déjà été expliqué
-il y aura peu d'algorithmes à expliquer ici, plutôt des analyses statistiques.}
-
 \subsection{Calcul de la propagation du virus}
-\textit{TODO : Trouver comment calculer le spread factor}
-\subsection{Applications concrètes}
-\textit{TODO : Meilleure gestion des pandémies, meilleure compréhension des facteurs
-influant sur la propagation du virus.}
+
+Nous avons à notre disposition des séries temporelles de cas confirmés de COVID-19 pour chaque
+pays, il nous a fallu en extraire un indicateur de propagation du virus sous la forme d'un
+unique nombre par pays.
+
+\subsubsection{Troncature des courbes}
+En observant les séries temporelles et en les comparant aux manières dont a été gérée la pandémie
+dans les différents pays, on constate que les mesures prises par les gouvernements (port du masque,
+confinement, campagnes de vaccination, etc.) ont eu un impact sur la propagation du virus.
+
+Afin d'extraire un indicateur de propagation comparable entre les pays, nous avons essayé de tronquer
+les courbes de cas confirmés pour ne considérer que les périodes où le virus se propageait de manière
+naturelle, c'est-à-dire avant que les mesures gouvernementales n'aient un impact significatif.
+
+Pour ce faire nous avons d'abord lissé les courbes en utilisant une moyenne mobile car les données sont
+très bruitées et que pour cette partie de l'analyse, nous ne cherchons pas à être précis mais plutôt à
+capturer les grandes tendances. (fig. \ref{fig:moving_avg})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/moving_avg.png}
+    \caption{Cas confirmés et dérivée, sans et avec moyenne mobile}
+    \label{fig:moving_avg}
+\end{figure}
+
+Nous avons ensuite essayé de tronquer les courbes avec la bibliothèque Python \texttt{ruptures} qui
+permet de détecter des points singuliers d'une courbe mais nous ne sommes pas parvenus à trouver
+des paramètres qui nous donnaient des résultats satisfaisants sur l'ensemble des pays.
+
+Nous avons donc décidé d'utiliser la dérivée de la courbe de cas confirmés pour détecter les changements
+de tendance. La dérivée d'une série temporelle est calculée en prenant la différence entre chaque point
+de la courbe et le point précédent. Nous localisons le point où la dérivée est maximale pour chaque pays
+remontons dans le temps jusqu'à ce que la dérivée soit inférieure à un certain seuil pour tronquer la courbe.
+Nous procédons de la même manière de l'autre côté de la courbe en avançant dans le temps jusqu'à ce que la
+dérivée soit inférieure à un autre seuil.
+
+Les seuils ont été choisis de manière empirique en observant les résultats produits sur un échantillon de pays
+avec des courbes variées. (fig. \ref{fig:clip_full})
+
+Nous avons finalement choisi 5\% comme seuil pour la détection du début de la pandémie et 70\% pour la fin.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/clip.png}
+    \caption{Exemple de troncature, cas de la France}
+    \label{fig:clip}
+\end{figure}
+
+\subsubsection{Calcul du facteur de propagation}
+Il a ensuite fallu extraire des portions de courbes conservées un indicateur de propagation du virus
+pour chaque pays. Nous avons testé quatre méthodes différentes :
+\begin{itemize}
+    \item Régression linéaire
+    \item Régression exponentielle
+    \item Temps nécessaire pour doubler le nombre de cas
+    \item Ratio de reproduction quotidien
+\end{itemize}
+
+\noindent\textbf{Régression linéaire} : 
+
+Nous avons ajusté une droite de la forme $y = ax + b$ sur les données de cas confirmés en utilisant
+la bibliothèque Python \texttt{scikit-learn} et avons pris le coefficient $a$ comme indicateur de
+propagation.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/lin_reg.png}
+    \caption{Régression linéaire}
+
+    \label{fig:lin_reg}
+\end{figure}
+
+Comme on peut le voir sur la figure \ref{fig:lin_reg}, la régression linéaire ne semble pas être un
+bon modèle lorsqu'il s'agit de modéliser la propagation d'un virus. Dans le cas de certains pays, la
+droite est proche de la courbe, mais pour la pluaprt ce n'est pas le cas et le coefficient directeur
+est sensible à la population totale du pays ce qui n'est pas souhaitable.
+\\
+
+\noindent\textbf{Régression exponentielle} :
+
+Nous avons ajusté une courbe de la forme $y = e^{ax+b}$ sur les données de cas confirmés en utilisant
+la bibliothèque Python \texttt{scipy} et avons pris le coefficient $a$ comme indicateur de propagation.
+
+Nous nous sommes assurés de translater les courbes tronquées pour que le premier point de la série
+aient une ordonnée de 0 avant de faire la régression, et nous avons ensuite translaté la courbe
+résultant de la régression pour qu'elle corresponde à la courbe originale.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/exp_reg.png}
+    \caption{Régression exponentielle}
+
+    \label{fig:exp_reg}
+\end{figure}
+
+Comme on peut le voir sur la figure \ref{fig:exp_reg}, la régression exponentielle semble donner
+des résultats satisfaisants sur différents types de courbes.
+
+Nous avons appliqué un min-max scaling sur les coefficients obtenus pour chaque pays afin de les
+ramener entre 0 et 1 et de pouvoir les comparer.
+\\
+
+\noindent\textbf{Temps moyen requis pour doubler le nombre de cas} :
+
+Une autre manière de calculer le taux de propagation est de calculer le temps qu'il faut pour que le nombre
+de cas confirmés double. Cette méthode est robuste à la forme de la courbe et facile à calculer mais puisque
+nous avons tronqué les séries temporelles à un certain point, l'initialisation ne sera pas la même pour chaque
+pays même après translation. Certains pays pourraient déjà avoir gagné un certain élan au début de la série
+temporelle tronquée et cela ferait que le temps pour doubler les cas serait plus petit qu'il ne devrait l'être.
+
+Pour éviter cela, nous avons décidé de ne prendre en compte le temps pour doubler les cas qu'à partir
+d'une certaine portion de la série temporelle en espérant que le taux de propagation se soit stabilisé.
+
+Ainsi, nous avons choisi de ne considérer que les derniers 75\% de la série temporelle tronquée.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/time_double.png}
+    \caption{Temps pour doubler les cas}
+
+    \label{fig:time_double}
+\end{figure}
+
+Comme on peut le voir sur la figure \ref{fig:time_double}, notre manipulation a permis de stabiliser
+le temps pour doubler les cas pour chaque pays et de minimiser l'impact de l'initialisation.
+
+Pour ramener cet indicateur entre 0 et 1, nous avons utilisé la formule suivante :
+$$v' = \frac{v_{max}-v}{v_{max}}$$ où $v_{max}$ est le temps pour doubler les cas le plus grand parmi
+tous les pays.
+\\
+
+\noindent\textbf{Ratio de reproduction quotidien} :
+
+Cette méthode consiste à calculer l'augmentation relative moyenne du nombre de cas confirmés par jour
+sur la période considérée. C'est une méthode simple et intuitive qui semble fonctionner correctement.
+
+La formule utilisée est la suivante :
+$$v = \frac{1}{n-1} \sum_{i=1}^{n-1} \frac{c_{i+1} - c_i}{c_i}$$ où $c_i$ est le nombre de cas confirmés
+au jour $i$ et $n$ est le nombre de jours considérés.
+
+Voici les valeurs que l'on obtient pour quelques pays :
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        Pays & Ratio de reproduction quotidien \\
+        \hline
+        France & 0.052 \\
+        United Kingdom & 0.042 \\
+        United States & 0.015 \\
+        China & 0.098 \\
+        Russia & 0.031 \\
+        Ethiopia & 0.035 \\
+        Afghanistan & 0.052 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+À nouveau, un min-max scaling a été appliqué pour ramener les valeurs entre 0 et 1.
+\\
+
+\noindent\textbf{Comparaison des méthodes} :
+
+Afin de comparer les différentes méthodes, nous avons affiché les positions de quelques
+pays pour chacune d'entre elles. (fig. \ref{fig:spread_comp})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/spread_comp.png}
+    \caption{Comparaison des méthodes de calcul de la propagation}
+
+    \label{fig:spread_comp}
+\end{figure}
+
+On constate notamment que le temps moyen pour doubler les cas présente un classement assez
+différent des deux autres méthodes.
+
+Après avoir comparé les résultats de la régression exponentielle et du ratio de reproduction
+quotidien entre eux et avec les courbes, nous avons décidé de poursuivre notre étude en
+utilisant le coefficient de la régression exponentielle comme indicateur de propagation.
 
 \subsection{Résultats et interprétation}
 \textit{TODO : spread/position, spread/urban population, spread/climate et comparaison entre
 spread et mortality rate}
+
+\subsection{Applications concrètes}
+\textit{TODO : Meilleure gestion des pandémies, meilleure compréhension des facteurs
+influant sur la propagation du virus.}
 \subsection{Limites}
 Nous avons été limités par la qualité des données disponibles. En effet, certaines données
 ne sont disponibles que par pays et d'autres pour des points du globe. Nous avons donc dû
@@ -209,5 +386,15 @@ pas de faire des analyses plus fines quant aux différences d'urbanisation au se
 
 \bibliographystyle{plain}
 \bibliography{bibliography}
+
+\newpage
+
+\section{Annexes}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{img/clip_full.png}
+    \caption{Troncature des courbes de cas confirmés}
+    \label{fig:clip_full}
+\end{figure}
 
 \end{document}
