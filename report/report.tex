@@ -318,6 +318,8 @@ tous les pays.
 
 Cette méthode consiste à calculer l'augmentation relative moyenne du nombre de cas confirmés par jour
 sur la période considérée. C'est une méthode simple et intuitive qui semble fonctionner correctement.
+Nous avons, comme pour l'indicateur précédent, décidé de ne considérer que les derniers 75\% de la série
+temporelle tronquée.
 
 La formule utilisée est la suivante :
 $$v = \frac{1}{n-1} \sum_{i=1}^{n-1} \frac{c_{i+1} - c_i}{c_i}$$ où $c_i$ est le nombre de cas confirmés

@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex report"] 1711608207 "report.aux" "report.bbl" "report" 1711649631 0
+["bibtex report"] 1711608207 "report.aux" "report.bbl" "report" 1711650217 0
   "./bibliography.bib" 1710541334 2782 48147acd4459b6522169bf6d9ec42a92 ""
   "c:/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1693267751 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "report.aux" 1711649630 6699 da08acb929a92f833f784011e1b5c52a "pdflatex"
+  "report.aux" 1711650216 6699 da08acb929a92f833f784011e1b5c52a "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1711649628 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1711649631 0
-  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1711649628 20361 48e816baeb71ac4680847aeacc5d4b16 ""
+["pdflatex"] 1711650214 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1711650217 0
+  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1711650216 20496 49612e82961483cb70a85457337e66e3 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1693268547 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1693268951 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1693268288 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -104,10 +104,10 @@
   "img/moving_avg.png" 1711603356 128346 524deadd7c8358ab5bd5b958bd14c5f3 ""
   "img/spread_comp.png" 1711607898 45720 096e041599ea3596bd8979ab3417cb35 ""
   "img/time_double.png" 1711606755 90740 6e7f359770b7bdca90d5cb93c30cfc2b ""
-  "report.aux" 1711649630 6699 da08acb929a92f833f784011e1b5c52a "pdflatex"
+  "report.aux" 1711650216 6699 da08acb929a92f833f784011e1b5c52a "pdflatex"
   "report.bbl" 1711608207 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
-  "report.out" 1711649630 4147 b452f4ece81c11552e759884dd92c7b2 "pdflatex"
-  "report.tex" 1711649628 20361 48e816baeb71ac4680847aeacc5d4b16 ""
+  "report.out" 1711650216 4147 b452f4ece81c11552e759884dd92c7b2 "pdflatex"
+  "report.tex" 1711650216 20496 49612e82961483cb70a85457337e66e3 ""
   (generated)
   "report.aux"
   "report.log"

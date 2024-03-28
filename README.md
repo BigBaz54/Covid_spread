@@ -89,7 +89,8 @@ Four methods were evaluated to calculate a single spread rate indicator from the
 
 4. Daily Reproduction Ratio
 
-   It corresponds to the mean relative increase in cases from one day to the next.
+   It corresponds to the mean relative increase in cases from one day to the next. It was calculated as the average of the daily reproduction ratios on the last 75% of the time series.
+   The formula is: $R = \sum_{i=1}^{n-1} (C_{i+1} - C_i) / C_i$, where $C_i$ is the number of cases on day $i$.
 
    This method was considered but not used for the final analysis.
 
