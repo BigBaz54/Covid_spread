@@ -61,7 +61,9 @@ The time series were first smoothed using a moving average.
 
 The derivatives of the smoothed curves were then calculated, and the maximum derivative point was located. Moving backwards and forwards from this point, the curves were truncated at points where the derivative fell below empirically chosen thresholds of 5% and 70% respectively.
 
-![Truncation Example](report/img/clip.png)
+<div align="center">
+    <img src="report/img/clip.png" width="100%">
+</div>
 
 ### Spread Rate Calculation
 
@@ -69,13 +71,17 @@ Four methods were evaluated to calculate a single spread rate indicator from the
 
 1. Linear Regression  
 
-   ![Linear Regression](report/img/lin_reg.png)
+   <div align="center">
+       <img src="report/img/lin_reg.png" width="100%">
+   </div>
 
    This proved to be a poor model for viral spread.
 
 2. Exponential Regression
 
-   ![Exponential Regression](report/img/exp_reg.png)
+   <div align="center">
+       <img src="report/img/exp_reg.png" width="100%">
+   </div>
 
    Exponential regression provided a good fit and was selected as the spread indicator, after min-max scaling of coefficients.
 
@@ -83,7 +89,9 @@ Four methods were evaluated to calculate a single spread rate indicator from the
 
     In order to make the result less sensitive to the initial conditions, the doubling rate was calculated as the average of the doubling rates on the last 75% of the time series.
 
-    ![Doubling Rate](report/img/time_double.png)
+    <div align="center">
+      <img src="report/img/time_double.png" width="100%">
+   </div>
     
     This method was considered but not used for the final analysis.
 
