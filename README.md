@@ -71,17 +71,17 @@ Four methods were evaluated to calculate a single spread rate indicator from the
 
 1. Linear Regression  
 
-   <div align="center">
-       <img src="report/img/lin_reg.png" width="100%">
-   </div>
+<div align="center">
+      <img src="report/img/lin_reg.png" width="100%">
+</div>
 
    This proved to be a poor model for viral spread.
 
 2. Exponential Regression
 
-   <div align="center">
-       <img src="report/img/exp_reg.png" width="100%">
-   </div>
+<div align="center">
+      <img src="report/img/exp_reg.png" width="100%">
+</div>
 
    Exponential regression provided a good fit and was selected as the spread indicator, after min-max scaling of coefficients.
 
@@ -89,9 +89,9 @@ Four methods were evaluated to calculate a single spread rate indicator from the
 
     In order to make the result less sensitive to the initial conditions, the doubling rate was calculated as the average of the doubling rates on the last 75% of the time series.
 
-    <div align="center">
-      <img src="report/img/time_double.png" width="100%">
-   </div>
+<div align="center">
+   <img src="report/img/time_double.png" width="100%">
+</div>
     
     This method was considered but not used for the final analysis.
 
