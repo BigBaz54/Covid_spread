@@ -93,7 +93,7 @@ Four methods were evaluated to calculate a single spread rate indicator from the
    <img src="report/img/time_double.png" width="100%">
 </div>
     
-    This method was considered but not used for the final analysis.
+   This method was considered but not used for the final analysis.
 
 4. Daily Reproduction Ratio
 
