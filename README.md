@@ -15,6 +15,17 @@ A previous study examined the relationship between COVID-19 spread and latitude,
 - Climate classification: https://koeppen-geiger.vu-wien.ac.at/data/Koeppen-Geiger-ASCII.zip
 - Mortality rate: https://www.kaggle.com/datasets/paultimothymooney/coronavirus-covid19-mortality-rate-by-country and https://www.worldometers.info/coronavirus/
 
+## Notebooks
+
+Here are the notebooks used in this project and their purpose:
+
+1. `clipping_curves.ipynb`: Truncates the COVID-19 case curves to isolate the period of unmitigated spread.
+2. `spread_rate.ipynb`: Explores several methods to calculate the spread rate from the truncated curves.
+3. `data_exploration.ipynb`: Explores each feature in the dataset individually.
+4. `position.ipynb`: Explores the relationship between geographic position and spread rate.
+5. `urbanization.ipynb`: Explores the relationship between the ratio of urban population and spread rate.
+6. `climate.ipynb`: Explores the relationship between climate classification/mean temperature and spread rate.
+
 ## Data Processing
 
 The data processing steps include:
