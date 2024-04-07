@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex report"] 1712464733 "report.aux" "report.bbl" "report" 1712464764 0
+["bibtex report"] 1712469216 "report.aux" "report.bbl" "report" 1712470660 0
   "./bibliography.bib" 1710541334 2782 48147acd4459b6522169bf6d9ec42a92 ""
   "c:/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1693267751 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "report.aux" 1712464763 10222 ec696da5ee0916323132520720fbbf9f "pdflatex"
+  "report.aux" 1712470659 12240 1c36f5e368abe72273f21ac8d262ed9f "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1712464758 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1712464764 0
-  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1712464757 27604 b09993369402af226a1ae543bdce414b ""
+["pdflatex"] 1712470655 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1712470660 0
+  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1712470660 35095 5d5f033d57f4df136c27be829e485194 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1693268547 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1693268951 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1693268288 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -110,19 +110,25 @@
   "img/loc_world.png" 1712460860 832962 3708571caa3e2dc65579a5ae8c1cd548 ""
   "img/mort_lat.png" 1712463318 40748 5c0e428ac655fb25b4389b190aeccd46 ""
   "img/moving_avg.png" 1711603356 128346 524deadd7c8358ab5bd5b958bd14c5f3 ""
+  "img/spread_clim.png" 1712466513 36435 6dcb70fa7ad7d8183807358c45e1ffed ""
   "img/spread_comp.png" 1711607898 45720 096e041599ea3596bd8979ab3417cb35 ""
-  "img/spread_lat.png" 1712463839 40407 dc463732f58970f827266b703cc2937b ""
-  "img/spread_lon.png" 1712464249 40169 c68211f828f5563f299e992f07f29bde ""
-  "img/spread_mort_corr.png" 1712460922 37403 0782771c8270fb55b9b65996b2641f0c ""
+  "img/spread_lat.png" 1712465624 42503 05a25d88086f48acdb18830c61789916 ""
+  "img/spread_lon.png" 1712465674 40357 5bcad60c9df6d141f6764125a8271c2e ""
+  "img/spread_main_clim.png" 1712466525 29756 670a3a7cd942f6650dd9a6b7f5ea2672 ""
+  "img/spread_mean_temp.png" 1712466562 30665 a5b854d802687afd01f8702689e9994a ""
+  "img/spread_mort_corr.png" 1712465534 38848 5c6d5bde2c9755f44cf9d026dd69c369 ""
+  "img/spread_prec.png" 1712466538 24588 375423a7a2dba82c06fd439ff8f5ba16 ""
+  "img/spread_temp.png" 1712466549 21884 5ab06740fbdcb9a69886de11a9107689 ""
+  "img/spread_urb_rate.png" 1712465732 32909 5248fbd799bb94bf98a8994d643c2d30 ""
   "img/temp.png" 1712462443 23184 dcc2575028077e57b40a2379ba79285b ""
   "img/temp_world.png" 1712460900 724876 fd45ddd5c5c0a6150b42161cd45e88f6 ""
   "img/time_double.png" 1711606755 90740 6e7f359770b7bdca90d5cb93c30cfc2b ""
   "img/urb_rate.png" 1712460876 36315 3469253f928afb82436de92832b64b5c ""
   "img/urb_rate_world.png" 1712460888 740655 a28bae4d10a26354a94f4d09da601857 ""
-  "report.aux" 1712464763 10222 ec696da5ee0916323132520720fbbf9f "pdflatex"
-  "report.bbl" 1712464734 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
-  "report.out" 1712464763 5323 c4af1db7b10231b52e14a4b63c804740 "pdflatex"
-  "report.tex" 1712464757 27604 b09993369402af226a1ae543bdce414b ""
+  "report.aux" 1712470659 12240 1c36f5e368abe72273f21ac8d262ed9f "pdflatex"
+  "report.bbl" 1712469217 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
+  "report.out" 1712470659 6060 41196b2a3a3e04a9eb885b0f0e4af994 "pdflatex"
+  "report.tex" 1712470660 35095 5d5f033d57f4df136c27be829e485194 ""
   (generated)
   "report.aux"
   "report.log"

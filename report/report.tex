@@ -113,20 +113,23 @@ différentes sources de données que nous avons utilisées :
 \end{itemize}
 
 \subsection{Traitement des données}
-\subsubsection{Sélection des pays étudiés}
+
+\subsubsection{Sélection des pays étudiés}\hfill\\
 Nous avons commencé par sélectionner un sous-ensemble de pays pour lesquels nous avions toutes
 les données nécessaires, ce qui nous a donné un total de 159 pays.
 
 Les pays ayant plusieurs dénominations dans les différentes bases de données, nous avons utilisé
 la librairie \texttt{difflib} avec un seuil de similarité de 0.8 pour matcher les noms des pays
 et ainsi pouvoir lier les données des différentes bases.
+\\
 
-\subsubsection{Position géographique}
+\subsubsection{Position géographique}\hfill\\
 La position géographique de chaque pays étant disponible dans plusieurs bases de données, nous
 avons conservé les données de la base de Tadas Talaikis \cite{country_pos} qui représentent
 la position moyenne des pays en latitude et longitude.
+\\
 
-\subsubsection{Climat}
+\subsubsection{Climat}\hfill\\
 Pour refléter le climat global d'un pays, nous avons conservé deux indicateurs : la température
 moyenne et la classification climatique de Köppen-Geiger.
 
@@ -152,14 +155,16 @@ entre chaque pays et les points de la base de données grâce à la formule de H
 \cite{haversine} et avons sélectionné le point le plus proche pour chaque pays.
 
 \newpage
-\subsubsection{Population}
+
+\subsubsection{Population}\hfill\\
 Nous avons utilisé les données de la Banque Mondiale de population totale \cite{total_pop} et
 de population urbaine \cite{urban_pop} de chaque pays pour être en mesure de calculer la part
 de population urbaine. Ceci servira à estimer l'urbanisation de chaque pays.
 
 Nous avons conservé les données de 2020 seulement pour être en phase avec les données de COVID-19.
+\\
 
-\subsubsection{COVID-19}
+\subsubsection{COVID-19}\hfill\\
 Les données de cas confirmés et de taux de mortalité de COVID-19 ont été extraites de l'étude
 précédente \cite{kaggle} \cite{mortality_rate} et de Worldometers \cite{mortality_website}.
 
@@ -188,8 +193,9 @@ Nous avons donc obtenu un jeu de données avec les caractéristiques suivantes p
 
 Les données concernent un total de 159 pays. Voici quelques graphiques qui illustrent
 les distributions des différentes variables.
+\\
 
-\subsubsection{Position géographique}
+\subsubsection{Position géographique}\hfill\\
 
 Sachant que nous ne représentons chaque pays que par un point, celui-ci correspond
 à la position moyenne du pays. (fig. \ref{fig:loc_world})
@@ -204,10 +210,11 @@ Sachant que nous ne représentons chaque pays que par un point, celui-ci corresp
 Comme on le constate pour le Canada par exemple, le point qui le représente est situé
 à une localisation étrange mais qui correspond bien à la latitude et la longitude moyenne
 du pays. Plus le pays a une forme concave, plus le point risque d'être en dehors des
-frontières du pays mais nous n'avons pas vraiment de méthode plus réprésentative à notre
+frontières du pays mais nous n'avons pas vraiment de méthode plus représentative à notre
 disposition.
+\\
 
-\subsubsection{Population urbaine}
+\subsubsection{Population urbaine}\hfill\\
 
 La part de population urbaine est calculée comme suit :
 $$ R = \frac{U}{T} $$ où $U$ est la population urbaine et $T$ la population totale.
@@ -237,8 +244,9 @@ On peut également visualiser le taux de population urbaine sur un planisphère.
 Comme on pouvait s'y attendre, les pays les plus urbanisés sont ceux qui sont
 les plus développés. On constate ainsi que l'Afrique est le continent le moins
 urbanisé et que l'Asie du Sud est également peu urbanisée.
+\\
 
-\subsubsection{Température moyenne}
+\subsubsection{Température moyenne}\hfill\\
 
 La température moyenne dans le monde est de 18.2°C. Cependant la distribution des températures
 moyennes est très large puisqu'elle va de -5.35°C à 28.29°C. Cette distribution semble
@@ -276,14 +284,16 @@ le taux de mortalité. Cependant, de nombreuses critiques ont mentionné que cet
 pas assez de facteurs en compte et donc que les résultats obtenus n'étaient pas suffisants pour
 conclure que la position géographique était un facteur déterminant dans la propagation du virus.
 
+\newpage
 \section{Algorithmes}
 \subsection{Calcul de la propagation du virus}
 
 Nous avons à notre disposition des séries temporelles de cas confirmés de COVID-19 pour chaque
 pays, il nous a fallu en extraire un indicateur de propagation du virus sous la forme d'un
 unique nombre par pays.
+\\
 
-\subsubsection{Troncature des courbes}
+\subsubsection{Troncature des courbes}\hfill\\
 En observant les séries temporelles et en les comparant aux manières dont a été gérée la pandémie
 dans les différents pays, on constate que les mesures prises par les gouvernements (port du masque,
 confinement, campagnes de vaccination, etc.) ont eu un impact sur la propagation du virus.
@@ -325,7 +335,7 @@ avec des courbes variées. (fig. \ref{fig:clip_full})
     \label{fig:clip}
 \end{figure}
 
-\subsubsection{Calcul du facteur de propagation}
+\subsubsection{Calcul du facteur de propagation}\hfill\\
 Il a ensuite fallu extraire des portions de courbes conservées un indicateur de propagation du virus
 pour chaque pays. Nous avons testé quatre méthodes différentes :
 \begin{itemize}
@@ -335,6 +345,7 @@ pour chaque pays. Nous avons testé quatre méthodes différentes :
     \item Ratio de reproduction quotidien
 \end{itemize}
 
+\vskip 0.3cm
 \noindent\textbf{Régression linéaire} : 
 
 Nous avons ajusté une droite de la forme $y = ax + b$ sur les données de cas confirmés en utilisant
@@ -379,7 +390,7 @@ Nous avons appliqué un min-max scaling sur les coefficients obtenus pour chaque
 ramener entre 0 et 1 et de pouvoir les comparer.
 \\
 
-\noindent\textbf{Temps moyen requis pour doubler le nombre de cas} :
+\noindent\textbf{Nombre moyen de jours requis pour doubler le nombre de cas} :
 
 Une autre manière de calculer le taux de propagation est de calculer le temps qu'il faut pour que le nombre
 de cas confirmés double. Cette méthode est robuste à la forme de la courbe et facile à calculer mais puisque
@@ -419,6 +430,8 @@ La formule utilisée est la suivante :
 $$v = \frac{1}{n-1} \sum_{i=1}^{n-1} \frac{c_{i+1} - c_i}{c_i}$$ où $c_i$ est le nombre de cas confirmés
 au jour $i$ et $n$ est le nombre de jours considérés.
 
+À nouveau, un min-max scaling a été appliqué pour ramener les valeurs entre 0 et 1.
+
 Voici les valeurs que l'on obtient pour quelques pays :
 \begin{table}[h]
     \centering
@@ -437,8 +450,7 @@ Voici les valeurs que l'on obtient pour quelques pays :
     \end{tabular}
 \end{table}
 
-À nouveau, un min-max scaling a été appliqué pour ramener les valeurs entre 0 et 1.
-\\
+\newpage
 
 \noindent\textbf{Comparaison des méthodes} :
 
@@ -476,11 +488,13 @@ valeurs suivantes qui corroborent les observations faites sur les graphiques :
 Après avoir comparé les résultats de la régression exponentielle et du ratio de reproduction
 quotidien entre eux et avec les courbes, nous avons décidé de poursuivre notre étude en
 utilisant le coefficient de le ratio de reproduction quotidien comme indicateur de propagation
-car il semble être moins sensibles à la forme des courbes et donne des résultats plus cohérents
+car il semble être moins sensible à la forme des courbes et donne des résultats plus cohérents
 dans l'ensemble.
 
+\newpage
 \subsection{Résultats et interprétation}
-\subsubsection{Comparaison entre le taux de mortalité et le taux de propagation}
+
+\subsubsection{Comparaison entre le taux de mortalité et le taux de propagation}\hfill\\
 
 Pour commencer, nous pouvons comparer notre taux de propagation avec le taux de mortalité
 utilisé dans l'étude précédente \cite{kaggle}.
@@ -496,13 +510,15 @@ utilisé dans l'étude précédente \cite{kaggle}.
 On constate (fig. \ref{fig:spread_mort_corr}) que le taux de mortalité et le taux de propagation
 ont des distributions assez différentes.
 
-La corrélation entre les deux indicateurs est de 0.12, ce qui confirme que le taux de mortalité
+La corrélation entre les deux indicateurs est de 0.04, ce qui confirme que le taux de mortalité
 n'est pas un bon indicateur de la propagation du virus.
+\\
+\\
 
-\subsubsection{Corrélation entre la position et la propagation}
+\subsubsection{Corrélation entre la position et la propagation}\hfill\\
 
-Nous avons essayé de réproduire les résultats de l'étude précédente \cite{kaggle} en comparant
-la valeur absolue de latitude des pays avec leur taux de mortalité d'abord puis avec notre taux de propagation.
+Nous avons essayé de reproduire les résultats de l'étude précédente \cite{kaggle} en comparant
+la valeur absolue de la latitude des pays avec leur taux de mortalité d'abord puis avec notre taux de propagation.
 
 \begin{figure}[h]
     \centering
@@ -511,20 +527,22 @@ la valeur absolue de latitude des pays avec leur taux de mortalité d'abord puis
     \label{fig:mort_lat}
 \end{figure}
 
-On obtient une corrélation assez faible de 0.20 et un graph (fig. \ref{fig:mort_lat})
+On obtient une corrélation assez faible de 0.20 et un graphe (fig. \ref{fig:mort_lat})
 qui est bien identique à celui présenté dans notre étude de référence.
 
 Dans cette étude, l'auteur utilise également l'argument d'une corrélation plus élevée
-aux sein des États-Unis pour affirmer que la latitude est un facteur important dans la
+au sein des États-Unis pour affirmer que la latitude est un facteur important dans la
 propagation du virus. Comme nous le voyons à l'échelle du monde, cette corrélation
-est faible et il nous semble plus probable que d'autres facteurs entrent en jeu. Dans
+est faible et il nous semble plus probable que d'autres facteurs entrent en jeu.
+
+Dans
 cette étude, les données de cas confirmés ne sont pas tronquées et il est donc possible
 que les mesures gouvernementales aient un impact sur les résultats, surtout dans un pays
 comme les États-Unis qui est connu pour avoir une politique très hétérogène entre les 
 états du Nord et du Sud.
 
 En utilisant notre indicateur de propagation, nous obtenons une corrélation encore
-plus faible de 0.10 et la distribution est encore plus uniforme. (fig. \ref{fig:spread_lat})
+plus faible de 0.04 et la distribution est encore plus uniforme. (fig. \ref{fig:spread_lat})
 
 \begin{figure}[h]
     \centering
@@ -533,13 +551,134 @@ plus faible de 0.10 et la distribution est encore plus uniforme. (fig. \ref{fig:
     \label{fig:spread_lat}
 \end{figure}
 
-La corrélation avec la longitude valant 0.09 (fig. \ref{fig:spread_lon}), nous pouvons conclure que la position
+La corrélation avec la longitude valant 0.006 (fig. \ref{fig:spread_lon}), nous pouvons conclure que la position
 géographique n'est pas un facteur déterminant dans la propagation du virus.
 
+\newpage
+
+\subsubsection{Corrélation entre la part de population urbaine et la propagation}\hfill\\
+
+Nous avons ensuite comparé la part de population urbaine des pays avec notre taux de propagation. (fig. \ref{fig:spread_urb_rate})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/spread_urb_rate.png}
+    \caption{Taux de propagation vs. part de population urbaine}
+    \label{fig:spread_urb_rate}
+\end{figure}
+
+La corrélation correspondante est de -0.08, ce qui est faible et semble indiquer que la part de population
+urbaine n'est pas un facteur déterminant dans la propagation du virus bien que nous nous serions
+plutôt attendus à une corrélation positive et assez importante.
+
+Pour illustrer cette non-corrélation, nous avons calculé le nombre de pays se situant dans les
+différents quartiles de part de population urbaine et de taux de propagation.
+
+Voici les résultats obtenus :
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & Q1 urb. & Q4 urb. \\
+        \hline
+        Q1 prop. & 8 & 8 \\
+        \hline
+        Q4 prop. & 13 & 8 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+On compte ainsi un total de 16 pays supportant la thèse d'une corrélation positive 
+(la somme de la diagonale principale) et 21 pays supportant la thèse d'une corrélation négative
+(la somme de l'anti-diagonale). Cela semble confirmer que ni l'une ni l'autre
+de ces hypothèses n'est correcte, d'autant plus que seuls 37 pays sur 159 apparraissent dans
+ces résultats et que donc la majorité des pays ne se retrouvent dans aucune de ces hypothèses.
+\\
+
+\subsubsection{Corrélation entre le climat et la propagation}\hfill\\
+
+Enfin, nous avons comparé la classification climatique de Köppen-Geiger et la température moyenne
+des pays avec notre taux de propagation.
+
+Nous avons commencé par utiliser la classification brute que nous avons calculé pour chaque pays. (fig. \ref{fig:spread_clim})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/spread_clim.png}
+    \caption{Taux de propagation vs. classification climatique}
+    \label{fig:spread_clim}
+\end{figure}
+
+La corrélation correspondante étant très basse (-0.02), nous avons décidé d'isoler les
+différentes caractéristiques qui composent cette classification pour voir si l'une d'entre
+elles était plus corrélée à la propagation du virus.
+
+La première lettre de la classification de Köppen-Geiger correspond au climat principal
+du pays. Nous avons donc comparé cette lettre avec notre taux de propagation. (fig. \ref{fig:spread_main_clim})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/spread_main_clim.png}
+    \caption{Taux de propagation vs. climat principal}
+    \label{fig:spread_main_clim}
+\end{figure}
+
+La corrélation correspondante est de -0.03, ce qui est très faible et semble indiquer que le climat
+principal n'est pas un facteur déterminant dans la propagation du virus.
+
+Nous avons ensuite comparé le type de précipitations avec notre taux de propagation. (fig. \ref{fig:spread_prec})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/spread_prec.png}
+    \caption{Taux de propagation vs. type de précipitations}
+    \label{fig:spread_prec}
+\end{figure}
+
+La corrélation correspondante est un peu plus élevée (0.09) mais toujours insuffisante pour conclure
+que le type de précipitations serait un bon prédictif de la propagation du virus.
+
+Enfin, nous avons comparé la composante de température de la classification avec notre taux de propagation.
+(fig. \ref{fig:spread_temp})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/spread_temp.png}
+    \caption{Taux de propagation vs. type de température}
+    \label{fig:spread_temp}
+\end{figure}
+
+Là encore, une corrélation de -0.09 semble montrer que le type de température n'est pas un bon indicateur
+de la propagation du virus.
+
+Nous avons également comparé la température moyenne des pays avec notre taux de propagation. (fig. \ref{fig:spread_mean_temp})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/spread_mean_temp.png}
+    \caption{Taux de propagation vs. température moyenne}
+    \label{fig:spread_mean_temp}
+\end{figure}
+
+La corrélation correspondante étant nulle, on peut sans trop de risque conclure que la température
+n'est pas liée à notre taux de propagation.
 
 \subsection{Applications concrètes}
-\textit{TODO : Meilleure gestion des pandémies, meilleure compréhension des facteurs
-influant sur la propagation du virus.}
+Malgré l'absence de bon prédictif de la propagation du virus parmi les variables que nous avons
+étudiées, notre étude à permis de réfuter l'hypothèse que la position géographique serait un facteur
+déterminant dans la propagation du virus.
+
+Cela participe à améliorer notre compréhension de la propagation des virus et permet de mettre
+en lumière l'importance de prendre en compte plusieurs facteurs pour pouvoir prédire la propagation
+d'une maladie infectieuse.
+
+On se rend également compte que même si l'étude précédente annonçait une corrélation entre la latitude
+et la propagation du virus et que celle-ci n'était déjà pas très élevée aux États-Unis, une étude
+plus appronfondie à l'échelle mondiale aurait pu mettre l'auteur sur la piste que d'autres facteurs
+pourraient être en jeu, soulignant l'importance de garder un esprit critique et de ne pas se reposer
+sur des résultats sans les remettre en question.
+
 \subsection{Limites}
 Nous avons été limités par la qualité des données disponibles. En effet, certaines données
 ne sont disponibles que par pays et d'autres pour des points du globe. Nous avons donc dû
@@ -547,11 +686,43 @@ faire des approximations pour pouvoir les utiliser. Ce point pose notamment prob
 la classification climatique de Köppen-Geiger qui est disponible pour des points du globe et
 peut différer d'une région à l'autre d'un même pays. Également, les données de COVID-19
 ne sont disponibles qu'à l'échelle des pays ou de grandes régions, ce qui ne nous permet
-pas de faire des analyses plus fines quant aux différences d'urbanisation au sein des pays.
+pas de faire des analyses plus fines quant aux différences d'urbanisation ou de climat
+à l'intérieur d'un même pays.
+
+Les information lacunaires sur les cas confirmés de COVID-19 ont également rendu difficile
+la détermination d'un bon indicateur de propagation du virus. Ce genre d'étude est normalement
+réalisé à l'échelle nationale et non mondiale, en fonction de toutes les politiques
+mises en place par le pays et en prédisant précisément l'impact qu'elles auront
+afin de garder une continuité dans les calculs qui sont fait tout au long de l'épidémie.
+Dans nos cas, nous avons dû tronquer les courbes de cas confirmés avec une méthode 
+systématique car nous ne pouvions pas prendre en compte les politiques des 159 pays
+un par un.
+
+Dans le cas du calcul du R0 par exemple, il
+est nécessaire de prendre en compte des dizaines de paramètres inaccessibles en ligne
+pour obtenir un résultat fiable et même dans ce cas,
+le R0 évolue rapidement au cours d'une épidémie. 
+
+En résumé, la précision insuffisante des données et la complexité du problème nous pousse
+à faire des approximations qui ont probablement complétement obscurci les
+conclusions que nous aurions pu tirer de cette étude.
 
 \subsection{Conclusion}
-\textit{TODO : Répondre à la problématique, donner des pistes pour des études futures.}
 
+Nous sommes parvenus à réfuter l'hypothèse que la position géographique était un facteur
+déterminant dans la propagation du virus ce qui était la motivation première de notre étude.
+
+Les résultats plus généraux à l'échelle mondiale que nous aurions souhaité obtenir n'ont
+pas pu être démontrés, probablement à cause de la qualité des données en libre accès
+et de la complexité du problème. 
+
+Pour aller plus loin, il serait peut-être intéressant de se pencher sur des études
+plus locales, à l'échelle nationale par exemple, pour voir si des facteurs plus fins
+comme la densité de population ou le climat local pourraient être des facteurs déterminants
+dans la propagation du virus. Même dans ce cas cependant, il est probable que les données
+disponibles en ligne ne soient pas suffisantes pour obtenir des résultats fiables.
+
+\newpage
 \bibliographystyle{plain}
 \bibliography{bibliography}
 
