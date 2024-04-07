@@ -4,7 +4,7 @@ This project analyzes the spread of the COVID-19 virus across countries based on
 
 ## Motivation
 
-A previous study examined the relationship between COVID-19 spread and latitude, but received criticism for not considering enough factors like urbanization levels and climate. This project aims to revisit that analysis by incorporating additional variables to better understand the key influencers of virus propagation.
+[A previous study](https://www.kaggle.com/code/paultimothymooney/does-latitude-impact-the-spread-of-covid-19/notebook) examined the relationship between COVID-19 spread and latitude, but received criticism for not considering enough factors like urbanization levels and climate. This project aims to revisit that analysis by incorporating additional variables to better understand the key influencers of virus propagation.
 
 ## Data sources
 - Urban population: https://data.worldbank.org/indicator/SP.URB.TOTL
@@ -36,11 +36,24 @@ The data processing steps include:
 
 3. **Climate Data**:
    - **Temperature**: Mean temperature data for each country was extracted from Wikipedia.
+
+<div align="center">
+    <img src="report/img/temp.png" width="50%">
+</div>
+
+<div align="center">
+    <img src="report/img/temp_world.png" width="50%">
+</div>
+
    - **Climate Classification**: The Köppen-Geiger climate classification was obtained from the University of Vienna's dataset, which provides climate data for over 90,000 points globally. For each country, the nearest point was identified by calculating the distance using the Haversine formula, and the corresponding climate classification was assigned.
 
-4. **Population Data**:
+1. **Population Data**:
    - The total population and urban population figures for 2020 were retrieved from the World Bank dataset.
    - The urban population percentage was calculated by dividing the urban population by the total population.
+
+<div align="center">
+   <img src="report/img/urb_rate_world.png" width="50%">
+</div>
 
 5. **COVID-19 Data**:
    - **Confirmed Cases**: The cumulative confirmed COVID-19 cases were obtained from Kaggle and Worldometers, available as a time series with daily data points. For countries with multiple regions, the cases were summed up.
@@ -131,7 +144,43 @@ For the rest of the analysis, I decided to consider the mean daily reproduction 
 
 ## Results
 
-(Add summary of key results and findings)
+### Comparison of Mortality Rate and Spread Rate
+The analysis first compared the calculated spread rate with the mortality rate used in a previous study. 
+
+<div align="center">
+    <img src="report/img/spread_mort_corr.png" width="50%">
+</div>
+
+It was found that the mortality rate and spread rate had quite different distributions, and the correlation between the two indicators was very low at 0.04. This confirmed that the mortality rate was not a good indicator of the virus's spread.
+
+### Correlation with Geographic Position
+The study attempted to reproduce the findings of a previous analysis that linked COVID-19 spread to latitude. While a weak correlation of 0.20 was found between absolute latitude and mortality rate, similar to the previous study, using the calculated spread rate resulted in an even lower correlation of 0.04.
+
+<div align="center">
+    <img src="report/img/spread_lat.png" width="50%">
+</div>
+
+The correlation with longitude was also negligible at 0.006. These results suggest that geographic position was not a determining factor in the spread of the virus.
+
+### Correlation with Urban Population Share
+The relationship between urban population percentage and the spread rate was examined.The correlation was found to be -0.08, indicating that the urban population share was not a strong predictor of viral propagation.
+
+### Correlation with Climate
+The study investigated the links between climate factors and the virus spread rate. Using the overall Köppen-Geiger climate classification, the correlation was very low at -0.02. Analyzing the individual components of the climate classification, such as main climate type, precipitation type, and temperature type, also resulted in weak correlations ranging from -0.09 to 0.09. 
+
+<div align="center">
+   <img src="report/img/spread_main_clim.png" width="32%">
+   <img src="report/img/spread_prec.png" width="32%">
+   <img src="report/img/spread_temp.png" width="32%">
+</div>
+
+Similarly, the average temperature of countries showed no correlation with the spread rate.
+
+<div align="center">
+    <img src="report/img/spread_mean_temp.png" width="50%">
+</div>
+
+In summary, the results of this analysis were unable to identify any strong relationships between the virus spread rate and factors like geographic position, urban population share, or climatic conditions. This contradicts the findings of previous studies that had suggested latitude as a key determinant of COVID-19 propagation.
 
 ## Limitations
 
@@ -139,3 +188,6 @@ Some limitations of this study include:
 
 - Data availability only at country level, lacks granular details
 - Approximations required when merging data from different spatial resolutions
+- The Köppen-Geiger climate classification data being available for specific geographic points, their assignment to countries implies some inaccuracy, as the climate can vary within the same country
+- COVID-19 data also being primarily available at the country or large region level, this does not allow for sub-national analysis
+- The lacking information on confirmed COVID-19 cases has made it difficult to determine a reliable spread rate indicator, as this type of analysis is usually performed at the national level with precise data on government interventions
