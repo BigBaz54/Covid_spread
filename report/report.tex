@@ -362,9 +362,28 @@ pays pour chacune d'entre elles. (fig. \ref{fig:spread_comp})
 On constate notamment que le temps moyen pour doubler les cas présente un classement assez
 différent des deux autres méthodes.
 
+En calculant les corrélations deux à deux entre les différents indicateurs (Régression exponentielle (exp),
+Temps pour doubler les cas (T2C) et Ratio de reproduction quotidien (repr)), on obtient les
+valeurs suivantes qui corroborent les observations faites sur les graphiques :
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        corr & exp & T2D & repr \\
+        \hline
+        exp & 1.0 & 0.43 & 0.78 \\
+        T2C & 0.43 & 1.0 & 0.61 \\
+        repr & 0.78 & 0.61 & 1.0 \\
+        \hline
+    \end{tabular}
+\end{table}
+
 Après avoir comparé les résultats de la régression exponentielle et du ratio de reproduction
 quotidien entre eux et avec les courbes, nous avons décidé de poursuivre notre étude en
-utilisant le coefficient de la régression exponentielle comme indicateur de propagation.
+utilisant le coefficient de le ratio de reproduction quotidien comme indicateur de propagation
+car il semble être moins sensibles à la forme des courbes et donne des résultats plus cohérents
+dans l'ensemble.
 
 \subsection{Résultats et interprétation}
 \textit{TODO : spread/position, spread/urban population, spread/climate et comparaison entre
