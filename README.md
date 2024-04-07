@@ -119,7 +119,15 @@ The spread rates calculated were then compared by visualizing on a common scale 
     <img src="report/img/spread_comp.png" width="80%">
 </div>
 
-The exponential regression method was finally chosen as the spread indicator for the analysis.
+Here are the correlations between the different spread rate indicators:
+
+| Indicator | Exponential Rate | Time to Double | Reproduction Ratio |
+|-----------|------------------|----------------|--------------------|
+| Exponential Rate | 1.00 | 0.43 | 0.78 |
+| Time to Double | 0.43 | 1.00 | 0.61 |
+| Reproduction Ratio | 0.78 | 0.61 | 1.00 |
+
+For the rest of the analysis, I decided to consider the mean daily reproduction ratio as the main spread rate indicator since it's less sensitive to the shape of the curves.
 
 ## Results
 
