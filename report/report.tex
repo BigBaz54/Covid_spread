@@ -129,12 +129,28 @@ la position moyenne des pays en latitude et longitude.
 Pour refléter le climat global d'un pays, nous avons conservé deux indicateurs : la température
 moyenne et la classification climatique de Köppen-Geiger.
 
-La température moyenne a été extraite de Wikipedia \cite{mean_temp}. La classification
+La température moyenne a été extraite de Wikipedia \cite{mean_temp}.
+
+La classification
 climatique de Köppen-Geiger est fournie par l'Université de Vienne \cite{climate_classification}
-pour un peu plus de 90000 points répartis sur la surface du globe. Nous avons calculé la distance
+pour un peu plus de 90000 points répartis sur la surface du globe. 
+
+À chaque point est associée une classe selon trois critères : le climat principal,
+les précipitations et la température. Voici la répartition des classes de Köppen-Geiger
+sur la surface du globe. (fig. \ref{fig:KG_classification})
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\columnwidth]{img/KG_classification.jpg}
+    \caption{Classification climatique de Köppen-Geiger}
+    \label{fig:KG_classification}
+\end{figure}
+
+Nous avons calculé la distance
 entre chaque pays et les points de la base de données grâce à la formule de Haversine
 \cite{haversine} et avons sélectionné le point le plus proche pour chaque pays.
 
+\newpage
 \subsubsection{Population}
 Nous avons utilisé les données de la Banque Mondiale de population totale \cite{total_pop} et
 de population urbaine \cite{urban_pop} de chaque pays pour être en mesure de calculer la part
