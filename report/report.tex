@@ -184,12 +184,90 @@ Nous avons donc obtenu un jeu de données avec les caractéristiques suivantes p
 \end{itemize}
 
 \subsection{Informations sur les données}
-\textit{TODO : Ajouter des insights (moyennes, médianes, etc.) sur les données et
-des graphiques pour les illustrer.}
+
+Les données concernent un total de 159 pays. Voici quelques graphiques qui illustrent
+les distributions des différentes variables.
+
+\subsubsection{Position géographique}
+
+Sachant que nous ne représentons chaque pays que par un point, celui-ci correspond
+à la position moyenne du pays. (fig. \ref{fig:loc_world})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/loc_world.png}
+    \caption{Position des pays sur la carte du monde}
+    \label{fig:loc_world}
+\end{figure}
+
+Comme on le constate pour le Canada par exemple, le point qui le représente est situé
+à une localisation étrange mais qui correspond bien à la latitude et la longitude moyenne
+du pays. Plus le pays a une forme concave, plus le point risque d'être en dehors des
+frontières du pays mais nous n'avons pas vraiment de méthode plus réprésentative à notre
+disposition.
+
+\subsubsection{Population urbaine}
+
+La part de population urbaine est calculée comme suit :
+$$ R = \frac{U}{T} $$ où $U$ est la population urbaine et $T$ la population totale.
+
+Voici la distribution de la part de population urbaine pour les pays étudiés. (fig. \ref{fig:urb_rate})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/urb_rate.png}
+    \caption{Distribution de la part de population urbaine}
+    \label{fig:urb_rate}
+\end{figure}
+
+On constate que le taux de population urbaine est bien compris entre 0 et 1 pour tous les pays
+et que la distribution est assez uniforme, avec légèrement plus de pays ayant une part de population
+urbaine élevée.
+
+On peut également visualiser le taux de population urbaine sur un planisphère. (fig. \ref{fig:urb_rate_world})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/urb_rate_world.png}
+    \caption{Taux de population urbaine dans le monde}
+    \label{fig:urb_rate_world}
+\end{figure}
+
+Comme on pouvait s'y attendre, les pays les plus urbanisés sont ceux qui sont
+les plus développés. On constate ainsi que l'Afrique est le continent le moins
+urbanisé et que l'Asie du Sud est également peu urbanisée.
+
+\subsubsection{Température moyenne}
+
+La température moyenne dans le monde est de 18.2°C. Cependant la distribution des températures
+moyennes est très large puisqu'elle va de -5.35°C à 28.29°C. Cette distribution semble
+bimodale avec un pic autour de 10°C et un autre autour de 25°C. (fig. \ref{fig:temp})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/temp.png}
+    \caption{Distribution de la température moyenne}
+    \label{fig:temp}
+\end{figure}
+
+En visualisant la température moyenne sur un planisphère, on constate que les pays les plus
+chauds sont situés autour de l'équateur et que les pays les plus froids sont situés près des
+pôles. Également, les données semblent cohérentes puisque les pays proches les uns des autres
+ont des températures similaires. (fig. \ref{fig:temp_world})
+
+Les pays en blanc sont ceux pour lesquels nous n'avons pas de donnée.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{img/temp_world.png}
+    \caption{Température moyenne dans le monde}
+    \label{fig:temp_world}
+\end{figure}
+
 
 \subsection{Problématique}
-La propagation du COVID-19 est-elle intrinsèquement liée à la position géographique des pays
-ou est-elle plutôt liée à d'autres facteurs comme la densité de population ou le climat ?
+La propagation du COVID-19 est-elle vraiment liée à la position géographique des pays
+et est-elle liée à d'autres facteurs comme la densité de population ou le climat ?
 
 \subsection{Historique des travaux et développements}
 Comme évoqué précédemment, une étude \cite{kaggle} a déjà été réalisée sur la relation entre

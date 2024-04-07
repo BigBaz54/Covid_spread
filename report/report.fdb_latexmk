@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex report"] 1712460675 "report.aux" "report.bbl" "report" 1712460678 0
+["bibtex report"] 1712462563 "report.aux" "report.bbl" "report" 1712462741 0
   "./bibliography.bib" 1710541334 2782 48147acd4459b6522169bf6d9ec42a92 ""
   "c:/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1693267751 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "report.aux" 1712460677 6951 f5e0acae3b5a2936985d04559643190d "pdflatex"
+  "report.aux" 1712462740 8589 3451b5c0ca5445a42fafece6464033bd "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1712460675 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1712460678 0
-  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1712460671 21676 d0f7b021ebfb12607fdcd5a9d3c6563f ""
+["pdflatex"] 1712462736 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1712462741 0
+  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1712462733 24811 03c50e3d7bffc30324d9e765463acbc7 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1693268547 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1693268951 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1693268288 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -17,6 +17,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1693272626 4524 6bce29db5bc272ba5f332261583fee9c ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm" 1693272626 2228 e564491c42a4540b5ebb710a75ff306c ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm" 1693272626 2124 2601a75482e9426d33db523edf23570a ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm" 1693272626 1352 fa28a7e6d323c65ce7d13d5342ff6be2 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm" 1693272626 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm" 1693272626 2680 312a2d12b1f1df8ee0212e7ba1962402 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm" 1693272626 2288 f478fc8fed18759effb59f3dad7f3084 ""
@@ -47,6 +48,7 @@
   "c:/texlive/2023/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf" 1693268288 1344 6ff472164bf9de0fb2e864b28ac156d9 ""
   "c:/texlive/2023/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf" 1693272627 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "c:/texlive/2023/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf" 1693272627 1380 0ea3a3370054be6da6acd929ec569f06 ""
+  "c:/texlive/2023/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf" 1693272627 3556 8a9a6dcbcd146ef985683f677f4758a6 ""
   "c:/texlive/2023/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf" 1693272627 1948 7330aeef3af211edff3b35fb2c12a0fd ""
   "c:/texlive/2023/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf" 1693272627 1384 a9d8adaf491ce34e5fba99dc7bbe5f39 ""
   "c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1693270385 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -89,6 +91,7 @@
   "c:/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty" 1693269852 5766 13a9e8766c47f30327caf893ece86ac8 ""
   "c:/texlive/2023/texmf-dist/tex/latex/psnfss/ot1pcr.fd" 1693271179 985 1ed784d7bfe47179f3550d2303b073f8 ""
   "c:/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1693271179 961 15056f4a61917ceed3a44e4ac11fcc52 ""
+  "c:/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd" 1693271179 619 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "c:/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty" 1693271483 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "c:/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1693271507 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "c:/texlive/2023/texmf-dist/tex/latex/tools/indentfirst.sty" 1693272726 1618 7b2cc9bc42f1ad36c989fb47fd65c549 ""
@@ -102,13 +105,18 @@
   "img/clip_full.png" 1711603834 299521 ee38b8ff27f5333b75ad867f22c0a05c ""
   "img/exp_reg.png" 1711606300 88490 79cb78c6965b0048a1208f0b26d577b5 ""
   "img/lin_reg.png" 1711605565 92656 267c0455be66343b4a565d734f57d503 ""
+  "img/loc_world.png" 1712460860 832962 3708571caa3e2dc65579a5ae8c1cd548 ""
   "img/moving_avg.png" 1711603356 128346 524deadd7c8358ab5bd5b958bd14c5f3 ""
   "img/spread_comp.png" 1711607898 45720 096e041599ea3596bd8979ab3417cb35 ""
+  "img/temp.png" 1712462443 23184 dcc2575028077e57b40a2379ba79285b ""
+  "img/temp_world.png" 1712460900 724876 fd45ddd5c5c0a6150b42161cd45e88f6 ""
   "img/time_double.png" 1711606755 90740 6e7f359770b7bdca90d5cb93c30cfc2b ""
-  "report.aux" 1712460677 6951 f5e0acae3b5a2936985d04559643190d "pdflatex"
-  "report.bbl" 1712460675 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
-  "report.out" 1712460677 4147 b452f4ece81c11552e759884dd92c7b2 "pdflatex"
-  "report.tex" 1712460671 21676 d0f7b021ebfb12607fdcd5a9d3c6563f ""
+  "img/urb_rate.png" 1712460876 36315 3469253f928afb82436de92832b64b5c ""
+  "img/urb_rate_world.png" 1712460888 740655 a28bae4d10a26354a94f4d09da601857 ""
+  "report.aux" 1712462740 8589 3451b5c0ca5445a42fafece6464033bd "pdflatex"
+  "report.bbl" 1712462563 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
+  "report.out" 1712462740 4656 3b10b307ecd48c471312301cd70bb8d5 "pdflatex"
+  "report.tex" 1712462733 24811 03c50e3d7bffc30324d9e765463acbc7 ""
   (generated)
   "report.aux"
   "report.log"
