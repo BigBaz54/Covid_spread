@@ -264,7 +264,6 @@ Les pays en blanc sont ceux pour lesquels nous n'avons pas de donnée.
     \label{fig:temp_world}
 \end{figure}
 
-
 \subsection{Problématique}
 La propagation du COVID-19 est-elle vraiment liée à la position géographique des pays
 et est-elle liée à d'autres facteurs comme la densité de population ou le climat ?
@@ -480,8 +479,24 @@ car il semble être moins sensibles à la forme des courbes et donne des résult
 dans l'ensemble.
 
 \subsection{Résultats et interprétation}
-\textit{TODO : spread/position, spread/urban population, spread/climate et comparaison entre
-spread et mortality rate}
+\subsubsection{Comparaison entre le taux de mortalité et le taux de propagation}
+
+Pour commencer, nous pouvons comparer notre taux de propagation avec le taux de mortalité
+utilisé dans l'étude précédente \cite{kaggle}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/spread_mort_corr.png}
+    \caption{Comparaison du taux de mortalité et du taux de propagation}
+
+    \label{fig:spread_mort_corr}
+\end{figure}
+
+On constate (fig. \ref{fig:spread_mort_corr}) que le taux de mortalité et le taux de propagation
+ont des distributions assez différentes.
+
+La corrélation entre les deux indicateurs est de 0.12, ce qui confirme que le taux de mortalité
+n'est pas un bon indicateur de la propagation du virus.
 
 \subsection{Applications concrètes}
 \textit{TODO : Meilleure gestion des pandémies, meilleure compréhension des facteurs

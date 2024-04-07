@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex report"] 1712462563 "report.aux" "report.bbl" "report" 1712462741 0
+["bibtex report"] 1712463049 "report.aux" "report.bbl" "report" 1712463105 0
   "./bibliography.bib" 1710541334 2782 48147acd4459b6522169bf6d9ec42a92 ""
   "c:/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1693267751 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "report.aux" 1712462740 8589 3451b5c0ca5445a42fafece6464033bd "pdflatex"
+  "report.aux" 1712463104 9086 cf16cd1179cdee17f80454a1870e8248 "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1712462736 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1712462741 0
-  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1712462733 24811 03c50e3d7bffc30324d9e765463acbc7 ""
+["pdflatex"] 1712463099 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1712463105 0
+  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1712463099 25440 c9619c35592e67f7a52b429d1bd3fe0f ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1693268547 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1693268951 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1693268288 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -108,15 +108,16 @@
   "img/loc_world.png" 1712460860 832962 3708571caa3e2dc65579a5ae8c1cd548 ""
   "img/moving_avg.png" 1711603356 128346 524deadd7c8358ab5bd5b958bd14c5f3 ""
   "img/spread_comp.png" 1711607898 45720 096e041599ea3596bd8979ab3417cb35 ""
+  "img/spread_mort_corr.png" 1712460922 37403 0782771c8270fb55b9b65996b2641f0c ""
   "img/temp.png" 1712462443 23184 dcc2575028077e57b40a2379ba79285b ""
   "img/temp_world.png" 1712460900 724876 fd45ddd5c5c0a6150b42161cd45e88f6 ""
   "img/time_double.png" 1711606755 90740 6e7f359770b7bdca90d5cb93c30cfc2b ""
   "img/urb_rate.png" 1712460876 36315 3469253f928afb82436de92832b64b5c ""
   "img/urb_rate_world.png" 1712460888 740655 a28bae4d10a26354a94f4d09da601857 ""
-  "report.aux" 1712462740 8589 3451b5c0ca5445a42fafece6464033bd "pdflatex"
-  "report.bbl" 1712462563 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
-  "report.out" 1712462740 4656 3b10b307ecd48c471312301cd70bb8d5 "pdflatex"
-  "report.tex" 1712462733 24811 03c50e3d7bffc30324d9e765463acbc7 ""
+  "report.aux" 1712463104 9086 cf16cd1179cdee17f80454a1870e8248 "pdflatex"
+  "report.bbl" 1712463049 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
+  "report.out" 1712463104 5077 f9acec2cb16aa2c94478fb114fdc4630 "pdflatex"
+  "report.tex" 1712463099 25440 c9619c35592e67f7a52b429d1bd3fe0f ""
   (generated)
   "report.aux"
   "report.log"
