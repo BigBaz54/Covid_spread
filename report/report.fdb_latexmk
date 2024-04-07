@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex report"] 1712463049 "report.aux" "report.bbl" "report" 1712463105 0
+["bibtex report"] 1712464733 "report.aux" "report.bbl" "report" 1712464764 0
   "./bibliography.bib" 1710541334 2782 48147acd4459b6522169bf6d9ec42a92 ""
   "c:/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1693267751 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "report.aux" 1712463104 9086 cf16cd1179cdee17f80454a1870e8248 "pdflatex"
+  "report.aux" 1712464763 10222 ec696da5ee0916323132520720fbbf9f "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1712463099 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1712463105 0
-  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1712463099 25440 c9619c35592e67f7a52b429d1bd3fe0f ""
+["pdflatex"] 1712464758 "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" "report.pdf" "report" 1712464764 0
+  "c:/Users/LV/OneDrive/Bureau/COVID_spread/report/report.tex" 1712464757 27604 b09993369402af226a1ae543bdce414b ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1693268547 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1693268951 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1693268288 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -69,6 +69,8 @@
   "c:/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty" 1693269700 3045 909ba7bc518ac6e8e7ef69971d52f389 ""
   "c:/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty" 1693269700 2462 91a1cb69153367feea29040eef0c27f4 ""
   "c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty" 1693269700 5048 4a74b0804469fbfae7849704c4687a07 ""
+  "c:/texlive/2023/texmf-dist/tex/latex/caption/caption.sty" 1693267888 55961 5dd0cc28ec0f605352923cfc60f3574b ""
+  "c:/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty" 1693267888 72314 c1778fb03c6374e35a484f5ee100cc9e ""
   "c:/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1693268668 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "c:/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1693268713 46845 3b58f70c6e861a13d927bff09d35ecbc ""
   "c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1693269175 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -106,18 +108,21 @@
   "img/exp_reg.png" 1711606300 88490 79cb78c6965b0048a1208f0b26d577b5 ""
   "img/lin_reg.png" 1711605565 92656 267c0455be66343b4a565d734f57d503 ""
   "img/loc_world.png" 1712460860 832962 3708571caa3e2dc65579a5ae8c1cd548 ""
+  "img/mort_lat.png" 1712463318 40748 5c0e428ac655fb25b4389b190aeccd46 ""
   "img/moving_avg.png" 1711603356 128346 524deadd7c8358ab5bd5b958bd14c5f3 ""
   "img/spread_comp.png" 1711607898 45720 096e041599ea3596bd8979ab3417cb35 ""
+  "img/spread_lat.png" 1712463839 40407 dc463732f58970f827266b703cc2937b ""
+  "img/spread_lon.png" 1712464249 40169 c68211f828f5563f299e992f07f29bde ""
   "img/spread_mort_corr.png" 1712460922 37403 0782771c8270fb55b9b65996b2641f0c ""
   "img/temp.png" 1712462443 23184 dcc2575028077e57b40a2379ba79285b ""
   "img/temp_world.png" 1712460900 724876 fd45ddd5c5c0a6150b42161cd45e88f6 ""
   "img/time_double.png" 1711606755 90740 6e7f359770b7bdca90d5cb93c30cfc2b ""
   "img/urb_rate.png" 1712460876 36315 3469253f928afb82436de92832b64b5c ""
   "img/urb_rate_world.png" 1712460888 740655 a28bae4d10a26354a94f4d09da601857 ""
-  "report.aux" 1712463104 9086 cf16cd1179cdee17f80454a1870e8248 "pdflatex"
-  "report.bbl" 1712463049 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
-  "report.out" 1712463104 5077 f9acec2cb16aa2c94478fb114fdc4630 "pdflatex"
-  "report.tex" 1712463099 25440 c9619c35592e67f7a52b429d1bd3fe0f ""
+  "report.aux" 1712464763 10222 ec696da5ee0916323132520720fbbf9f "pdflatex"
+  "report.bbl" 1712464734 2231 47fbab499b3415b2939e9fcfc0c1f283 "bibtex report"
+  "report.out" 1712464763 5323 c4af1db7b10231b52e14a4b63c804740 "pdflatex"
+  "report.tex" 1712464757 27604 b09993369402af226a1ae543bdce414b ""
   (generated)
   "report.aux"
   "report.log"

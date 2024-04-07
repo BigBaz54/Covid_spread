@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{indentfirst}
+\usepackage[justification=centering]{caption}
 
 \title{IFT870 - Projet de session}
 
@@ -498,6 +499,44 @@ ont des distributions assez différentes.
 La corrélation entre les deux indicateurs est de 0.12, ce qui confirme que le taux de mortalité
 n'est pas un bon indicateur de la propagation du virus.
 
+\subsubsection{Corrélation entre la position et la propagation}
+
+Nous avons essayé de réproduire les résultats de l'étude précédente \cite{kaggle} en comparant
+la valeur absolue de latitude des pays avec leur taux de mortalité d'abord puis avec notre taux de propagation.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/mort_lat.png}
+    \caption{Latitude absolue vs. taux de mortalité}
+    \label{fig:mort_lat}
+\end{figure}
+
+On obtient une corrélation assez faible de 0.20 et un graph (fig. \ref{fig:mort_lat})
+qui est bien identique à celui présenté dans notre étude de référence.
+
+Dans cette étude, l'auteur utilise également l'argument d'une corrélation plus élevée
+aux sein des États-Unis pour affirmer que la latitude est un facteur important dans la
+propagation du virus. Comme nous le voyons à l'échelle du monde, cette corrélation
+est faible et il nous semble plus probable que d'autres facteurs entrent en jeu. Dans
+cette étude, les données de cas confirmés ne sont pas tronquées et il est donc possible
+que les mesures gouvernementales aient un impact sur les résultats, surtout dans un pays
+comme les États-Unis qui est connu pour avoir une politique très hétérogène entre les 
+états du Nord et du Sud.
+
+En utilisant notre indicateur de propagation, nous obtenons une corrélation encore
+plus faible de 0.10 et la distribution est encore plus uniforme. (fig. \ref{fig:spread_lat})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{img/spread_lat.png}
+    \caption{Latitude absolue vs. taux de propagation}
+    \label{fig:spread_lat}
+\end{figure}
+
+La corrélation avec la longitude valant 0.09 (fig. \ref{fig:spread_lon}), nous pouvons conclure que la position
+géographique n'est pas un facteur déterminant dans la propagation du virus.
+
+
 \subsection{Applications concrètes}
 \textit{TODO : Meilleure gestion des pandémies, meilleure compréhension des facteurs
 influant sur la propagation du virus.}
@@ -518,12 +557,22 @@ pas de faire des analyses plus fines quant aux différences d'urbanisation au se
 
 \newpage
 
-\section{Annexes}
+\section*{Annexes}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{figure}{0}
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=8cm]{img/clip_full.png}
     \caption{Troncature des courbes de cas confirmés}
     \label{fig:clip_full}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{img/spread_lon.png}
+    \caption{Longitude vs. taux de propagation}
+    \label{fig:spread_lon}
 \end{figure}
 
 \end{document}
